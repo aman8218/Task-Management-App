@@ -5,6 +5,7 @@ from sqlalchemy.orm import  sessionmaker, session # type: ignore
 from sqlalchemy.ext.declarative import declarative_base # type: ignore
 from datetime import datetime
 from fastapi.middleware.cors import CORSMiddleware
+import os
 
 app = FastAPI()
 
@@ -19,7 +20,7 @@ app.add_middleware(
 
 
 # SQLALCHEMY 
-DATABASE_URL = "postgres://default:aJqxpS47evzi@ep-plain-glitter-a4og6cvs.us-east-1.aws.neon.tech:5432/verceldb?sslmode=require"
+DATABASE_URL = os.environ.get("DATABASE_URL")
 engine = create_engine(DATABASE_URL)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 Base = declarative_base()
