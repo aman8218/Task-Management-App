@@ -9,9 +9,6 @@ from fastapi.middleware.cors import CORSMiddleware
 app = FastAPI()
 
 #cors setup
-origins = [
-    "http://localhost:5173",
-]
 app.add_middleware(
     CORSMiddleware,
     allow_origins = ["*"],
@@ -22,7 +19,7 @@ app.add_middleware(
 
 
 # SQLALCHEMY 
-DATABASE_URL = "sqlite:///./test.db"
+DATABASE_URL = "postgres://default:aJqxpS47evzi@ep-plain-glitter-a4og6cvs.us-east-1.aws.neon.tech:5432/verceldb?sslmode=require"
 engine = create_engine(DATABASE_URL)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 Base = declarative_base()
