@@ -18,7 +18,7 @@ const TaskList = () => {
     };
 
     const handleSaveClick = async (taskId) => {
-        if (!title || !description || !status) {
+        if (!editTitle || !editDescription || !editStatus) {
             setFormError("All fields are required");
             return;
         }

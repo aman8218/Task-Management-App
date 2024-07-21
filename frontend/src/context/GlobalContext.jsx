@@ -2,6 +2,7 @@ import { createContext, useState, useContext, useEffect } from "react";
 import axios from 'axios';
 
 const BASE_URL = "https://task-management-app-fastapi.vercel.app"
+// const BASE_URL = "http://localhost:8000"
 
 const GlobalContext = createContext();
 
